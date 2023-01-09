@@ -1,0 +1,2 @@
+# Run in dev 
+# FLASK_APP="app/main.py" FLASK_DEBUG=1 flask run

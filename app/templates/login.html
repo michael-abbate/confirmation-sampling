@@ -1,0 +1,29 @@
+{% extends "app.html" %}
+
+{% block content %}
+<div id="login-form">
+   <div class="login-logo">
+      <img src="{{ url_for('static', filename='img/IMAGEHERE') }}" alt=""">
+   </div>
+   {% if session['logged_in'] %}
+      <p class="success-container">You're logged in already!</p>
+   {% endif %}
+   {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+         {% for category, message in messages %}
+            <p class="flash-container {{ category }}">{{ message }}</p>
+         {% endfor %}
+      {% endif %}
+   {% endwith %}
+
+   <form class="container-form" action="{{ request.endpoint }}" method="POST">
+      {{ form.hidden_tag() }}
+      <div class="login-fields">
+         {{ form.email(class="input-field", placeholder="Email") }}
+         {{ form.password(class="input-field", placeholder="Password") }}
+         {{ form.submit(class="btn button-primary") }}
+      </div>
+   </form>
+</div>
+
+{% endblock %}

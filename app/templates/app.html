@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <title></title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
+
+      <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+      <link href="{{ url_for('static', filename='css/app.css') }}" rel="stylesheet" type="text/css">
+     
+      
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+      <!-- <script src="{{ url_for('static', filename='js/chosen.jquery.min.js') }}"></script> -->
+      <script type="text/javascript" src="{{ url_for('static', filename='js/main.js') }}"></script>
+   </head>
+   <body>
+      <!-- {% if request.endpoint != 'login' %}
+      <div class="container-body" id="header">
+         <div class="header-content flex">
+            <a href="/logout" class="logout"><i class="fa fa-sign-out" aria-hidden="true"></i></a>
+         </div>
+      </div>
+      {% endif %} -->
+
+      <div class="container-body">
+         {% block content %}{% endblock %}
+      </div>
+   </body>
+</html>

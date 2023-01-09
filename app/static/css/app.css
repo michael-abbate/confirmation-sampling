@@ -1,0 +1,62 @@
+h1 {
+    text-align: center;
+}
+
+.form-container {
+    margin: 0 auto;
+}
+
+.user-input-container {
+    width:33%;
+    margin: 0 auto;
+}
+
+.user-input-div {
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 8px;
+    margin: 16px;
+}
+
+.submit-button {
+    background-color: #0080C6;
+    border: None;
+    height: 3vw;
+    width: 7vw;
+    color:white;
+    border-radius:5px;
+
+}
+.submit-button:hover {
+    cursor:pointer;
+}
+
+.flash-container {
+    padding: 10px;
+    font-size: 14px;
+}
+ 
+.flash-container.success {
+    color: $success;
+    background-color: #bdeabd;
+    border: 1px solid green;
+}
+ 
+.flash-container.error {
+    background-color: #ffe9ec;
+    color: $invalid;
+    border: 1px solid red;
+}
+
+.flash-container.warning {
+    background-color: #fff3e9;
+    color: $warning;
+    border: 1px solid orange;
+}
+
+.flash-container.message {
+    background-color: #ebf6ff;
+    color: $main_color;
+    border: 1px solid #28a8b5;
+}
+

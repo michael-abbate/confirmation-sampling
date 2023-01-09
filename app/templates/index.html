@@ -1,0 +1,36 @@
+{% extends "app.html" %}
+
+{% block content %}
+<center>
+<div class="container-body">
+   {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+         {% for category, message in messages %}
+            <p class="flash-container {{ category }}">{{ message }}</p>
+         {% endfor %}
+      {% endif %}
+   {% endwith %}
+</div>
+</center>
+    <h1>Confirmation Sampling</h1>
+    <div class = "form-container">
+      <form method="post" enctype="multipart/form-data">
+         <div class = "user-input-container">
+            <div class="user-input-div">
+               <label for ="file">Select General Ledger Extract:</label>
+               <br><br>
+               <input type="file" name = "file"/>
+               <br><br>
+            </div>
+            <div class="user-input-div">
+               <label for ="outputpath">Select Output Path</label>
+               <br><br>
+               <input type="text" name ="outputpath" style="width:92%" />
+               <br><br>
+            </div>           
+            <center><input type="submit" class="submit-button"/></center>
+         </div>
+      </form>
+   </div>
+    
+{% endblock %}
