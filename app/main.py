@@ -30,6 +30,10 @@ __rootdir__ = os.path.abspath(os.getcwd())
 @app.route('/', methods = ['GET', 'POST'])
 # @login_required
 def home():
+    return render_template('index.html', message= "")
+
+@app.route('/sampling', methods = ['GET', 'POST'])
+def sampling():
     if request.method=="POST":
         try:
             file = request.files["file"]
@@ -43,11 +47,15 @@ def home():
                 df_output.to_csv(filename+'.csv', index=False)
                 # file.save(os.path.join("outputs",filename))
             flash(f'Success! Files uploaded to {outputpath} folder', 'success')
-            return render_template("index.html", message="Success!")
+            return render_template("sampling.html", message="Success!")
         except Exception as e:
             flash(f"Error, {e}", 'error')
-    return render_template('index.html', message= "")
+    return render_template('sampling.html', message= "")
 
+@app.route('/other', methods = ['GET', 'POST'])
+# @login_required
+def other():
+    return render_template('other.html', message= "")
 
 # @app.context_processor
 # def utility_processor():
