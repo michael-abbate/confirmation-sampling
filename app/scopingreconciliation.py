@@ -12,8 +12,7 @@ def scopingRec(scope_file1, scope_file2):
     #                 &   (df2[cols_to_join[1]].isin(df1[cols_to_join[1]]))  
     #                 &   (df2[cols_to_join[2]].isin(df1[cols_to_join[2]]))  
     # ,:]
-    new_df = df2.merge(df1, how = 'inner', left_on = cols_to_join, 
-            right_on = cols_to_join, suffixes=('', '_remove'))
+    new_df = df2.merge(df1, how = 'inner', on=cols_to_join, suffixes=('', '_remove'))
     
     new_df.drop([i for i in new_df.columns if '_remove' in i],
                axis=1, inplace=True)
