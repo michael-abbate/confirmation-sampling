@@ -4,10 +4,11 @@ import os
 def scopingRec(scope_file1, scope_file2):
     cols_to_join = ['Profit Center 0PROFIT_CTR','Company Code 0COMP_CODE','Functional Area 0FUNC_AREA']
     df1 = pd.read_csv(scope_file1)
-    df1.astype(str)
+    df1 = df1.astype(str)
     print(df1.dtypes)
     df2 = pd.read_csv(scope_file2)
-    df2.astype(str)
+    df2 = df2.astype(str)
+    print()
     print(df2.dtypes)
     # new_df = pd.merge(df1, df2,  how='inner', on=cols_to_join)
     # new_df = pd.merge(df2,df1, on = cols_to_join) 
