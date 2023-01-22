@@ -86,7 +86,7 @@ def determineCutoffThreshold(df):
                 rows.append(row)
         else:
             print("Error in reading column:", main_col)
-    print(rows)
+    # print(rows)
     return rows
 
 #Rules
