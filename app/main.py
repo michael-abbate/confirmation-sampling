@@ -104,7 +104,7 @@ def scoping():
             removeLocalFile(file_path_1)
             removeLocalFile(file_path_2)
 
-
+            print("TABLE SHAPE Success:", data_to_save)
             output_file_name = data_to_save['Level 4 -Description'].unique()[0]
             output_filepath=os.path.join(outputpath,output_file_name)                
             # output_filepath=os.path.join(outputpath,'test')                
@@ -115,6 +115,8 @@ def scoping():
             return render_template("scoping.html", message="Success!")
         except Exception as e:
             flash(f"Error, {e}", 'error')
+            print("TABLE SHAPE error:", data_to_save)
+
     return render_template('scoping.html', message= "")
 
 # @app.context_processor
