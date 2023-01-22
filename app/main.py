@@ -16,7 +16,7 @@ from confirmationsampling import determineCutoffThreshold
 from scopingreconciliation import scopingRec
 
 
-UPLOAD_FOLDER = os.path.join('app/uploads')
+UPLOAD_FOLDER = os.path.join('app','uploads')
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 __version__ = '0.0.1'
