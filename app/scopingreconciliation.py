@@ -8,9 +8,9 @@ def scopingRec(scope_file1, scope_file2):
     # new_df = pd.merge(df1, df2,  how='inner', on=cols_to_join)
     # new_df = pd.merge(df2,df1, on = cols_to_join) 
     
-    df2 = df2.loc[(df2[cols_to_join[0]].isin(df1[cols_to_join[0]])),:]
-    df2 = df2.loc[(df2[cols_to_join[1]].isin(df1[cols_to_join[1]])),:]
-    df2 = df2.loc[(df2[cols_to_join[2]].isin(df1[cols_to_join[2]])),:]
+    df2 = df2.loc[(df2[cols_to_join[0]].isin(df1[cols_to_join[0]].unique())),:]
+    df2 = df2.loc[(df2[cols_to_join[1]].isin(df1[cols_to_join[1]].unique())),:]
+    df2 = df2.loc[(df2[cols_to_join[2]].isin(df1[cols_to_join[2]].unique())),:]
                     # &   (df2[cols_to_join[1]].isin(df1[cols_to_join[1]]))  
                     # &   (df2[cols_to_join[2]].isin(df1[cols_to_join[2]]))  
     
