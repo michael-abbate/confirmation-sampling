@@ -11,6 +11,7 @@ from app import app
 # from models import Auth, User
 
 from confirmationsampling import determineCutoffThreshold
+from scopingreconciliation import scopingRec
 
 __version__ = '0.0.1'
 __basedir__ = os.path.abspath(os.path.dirname(__file__))
@@ -52,10 +53,27 @@ def sampling():
             flash(f"Error, {e}", 'error')
     return render_template('sampling.html', message= "")
 
-@app.route('/other', methods = ['GET', 'POST'])
+@app.route('/scoping', methods = ['GET', 'POST'])
 # @login_required
-def other():
-    return render_template('other.html', message= "")
+def scoping():
+    if request.method=="POST":
+        try:
+            file_1 = request.files["file_1"]
+            file_2 = request.files["file_2"]
+            outputpath = request.form["outputpath"]
+            df1=pd.read_csv(file_1.filename)
+            df2=pd.read_csv(file_2.filename)
+            data_to_save, file_name = scopingRec(df1,df2)
+            # for data in data_to_save:
+                # Update outputs folder to be an option for user
+            filepath=os.path.join(outputpath,file_name)                
+            data_to_save.to_csv(filepath+'.csv', index=False)
+                # file.save(os.path.join("outputs",filename))
+            flash(f'Success! Files uploaded to {outputpath} folder', 'success')
+            return render_template("scoping.html", message="Success!")
+        except Exception as e:
+            flash(f"Error, {e}", 'error')
+    return render_template('scoping.html', message= "")
 
 # @app.context_processor
 # def utility_processor():
