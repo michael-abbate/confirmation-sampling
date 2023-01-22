@@ -102,7 +102,8 @@ def scoping():
             removeLocalFile(file_path_1)
             df2=pd.read_csv(file_path_2)
             removeLocalFile(file_path_2)
-            data_to_save, output_file_name = scopingRec(df1, df2)
+            data_to_save = scopingRec(df1, df2)
+            output_file_name = data_to_save['Level 4 -Description'].unique()[0]
             output_filepath=os.path.join(outputpath,output_file_name)                
             data_to_save.to_csv(output_filepath+'.csv', index=False)
             # file.save(os.path.join("outputs",filename))
