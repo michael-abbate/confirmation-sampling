@@ -105,7 +105,7 @@ def scoping():
             removeLocalFile(file_path_2)
 
 
-            output_file_name = data_to_save['Level 4 -Description'].unique[0]
+            output_file_name = data_to_save['Level 4 -Description'].unique()[0]
             output_filepath=os.path.join(outputpath,output_file_name)                
             data_to_save.to_csv(output_filepath+'.csv', index=False)
 
