@@ -130,3 +130,5 @@ dmypy.json
 
 # Custom
 OTC Asset Dummy.csv
+scope1.csv
+scope2.csv
