@@ -19,7 +19,7 @@ Web app to perform confirmation sampling for audit procedures.
 1. Change directory into the \app folder
 1. Activate virtualenv: `.\venv\Scripts\activate`
 1. Change directory back to main confirmation-sampling folder: `cd ..`
-1. Run the following command: `set FLASK_APP="app/main.py"`
+1. Run the following command: `set FLASK_APP=app/main.py`
 1. Run the following command: `flask run`
 1. Select input file(s)
 1. Input valid output path *ex. /Users/my_user/Desktop/conf_sampling_output*
