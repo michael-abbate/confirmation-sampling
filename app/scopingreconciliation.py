@@ -55,14 +55,14 @@ def scopingRec(scope_file1, scope_file2):
     # df2 = df2.loc[(df2['unique_id'].isin(df1['unique_id'])), :]
     # df2 = df2.drop(columns=['unique_id'])
 
-    df2 = df2[df2[cols_to_join[0]].isin(df1[cols_to_join[0]].unique())]
+    df_v0 = df2[df2[cols_to_join[0]].isin(df1[cols_to_join[0]].unique())]
     print(f"File 2 Row Count after filtering {cols_to_join[0]}:", df2.shape[0])
-    df2 = df2[df2[cols_to_join[1]].isin(df1[cols_to_join[1]].unique())]
+    df_v1 = df_v0[df_v0[cols_to_join[1]].isin(df1[cols_to_join[1]].unique())]
     print(f"File 2 Row Count after filtering {cols_to_join[1]}:", df2.shape[0])
-    df2 = df2[df2[cols_to_join[2]].isin(df1[cols_to_join[2]].unique())]
-    print(f"File 2 Row Count after filtering {cols_to_join[2]}:", df2.shape[0])
-    print("Output File Row Count:", df2.shape[0])
+    df_v2 = df_v1[df_v1[cols_to_join[2]].isin(df1[cols_to_join[2]].unique())]
+    print(f"File 2 Row Count after filtering {cols_to_join[2]}:", df_v2.shape[0])
+    print("Output File Row Count:", df_v2.shape[0])
 
-    return df2
+    return df_v2
 
     # grabs uniques from File 1
