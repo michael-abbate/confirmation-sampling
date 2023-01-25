@@ -42,13 +42,16 @@ def scopingRec(scope_file1, scope_file2):
     print("Functional Area Counts for File 2:")
     print(df2.groupby([cols_to_join[2]]).size().reset_index())
     print()
-    print(df2.head(50))
-    df2 = df2.loc[(df2[cols_to_join[0]].isin(df1[cols_to_join[0]])), :]
-    print(f"File 2 Row Count after filtering {cols_to_join[0]}:", df2.shape[0])
-    df2 = df2.loc[(df2[cols_to_join[1]].isin(df1[cols_to_join[1]])), :]
-    print(f"File 2 Row Count after filtering {cols_to_join[1]}:", df2.shape[0])
-    df2 = df2.loc[(df2[cols_to_join[2]].isin(df1[cols_to_join[2]])), :]
-    print(f"File 2 Row Count after filtering {cols_to_join[2]}:", df2.shape[0])
+    # df2 = df2.loc[(df2[cols_to_join[0]].isin(df1[cols_to_join[0]])), :]
+    # print(f"File 2 Row Count after filtering {cols_to_join[0]}:", df2.shape[0])
+    # df2 = df2.loc[(df2[cols_to_join[1]].isin(df1[cols_to_join[1]])), :]
+    # print(f"File 2 Row Count after filtering {cols_to_join[1]}:", df2.shape[0])
+    # df2 = df2.loc[(df2[cols_to_join[2]].isin(df1[cols_to_join[2]])), :]
+    # print(f"File 2 Row Count after filtering {cols_to_join[2]}:", df2.shape[0])
+    df1['unique_id'] = df1[cols_to_join[0]]+df1[cols_to_join[1]]+df1[cols_to_join[2]]
+    df2['unique_id'] = df2[cols_to_join[0]]+df2[cols_to_join[1]]+df2[cols_to_join[2]]
+
+    df2 = df2.loc[(df2['unique_id'].isin(df1['unique_id'])), :]
 
     print("Output File Row Count:", df2.shape[0])
 
