@@ -107,7 +107,8 @@ def scoping():
             # print("TABLE SHAPE Success:", data_to_save)
             output_file_name = data_to_save['Level 4 -Description'].unique()[0]
             output_filepath=os.path.join(outputpath,output_file_name)                
-            # output_filepath=os.path.join(outputpath,'test')                
+            # output_filepath=os.path.join(outputpath,'test') 
+            print("Sending file to output folder... file row count:", data_to_save.shape[0])
             data_to_save.to_csv(output_filepath+'.csv', index=False)
 
             # file.save(os.path.join("outputs",filename))
