@@ -22,7 +22,7 @@ def scopingRec(scope_file1, scope_file2):
     # print(df1.dtypes)
     print()
 
-    df2 = pd.read_csv(scope_file2)
+    df2 = pd.read_csv(scope_file2, sep='\t,')
     print("File 2 Row Count:", df2.shape[0])
     # df2_usd = df2["USD Equivalent (at EOD) LIQ_PO990"].sum()
     # print("File 2 USD Sum:", df2_usd)
