@@ -52,7 +52,7 @@ def scopingRec(scope_file1, scope_file2):
     df2['unique_id'] = df2[cols_to_join[0]]+df2[cols_to_join[1]]+df2[cols_to_join[2]]
 
     df2 = df2.loc[(df2['unique_id'].isin(df1['unique_id'])), :]
-
+    df2 = df2.drop(columns=['unique_id'])
     print("Output File Row Count:", df2.shape[0])
 
     return df2
